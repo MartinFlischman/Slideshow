@@ -1,56 +1,73 @@
-/* Styles for slideshow container */
-.slideshow-container {
-    position: relative;
-    max-width: 1000px;
-    margin: auto;
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Styles for individual slides */
+/* Main container for the slider */
+.slider {
+    position: relative;
+    overflow: hidden;
+    height: 400px; /* Adjust the height as needed */
+}
+
+/* Individual slides */
 .slide {
-    display: none;
-    position: relative;
-}
-
-/* Styles for images inside slides */
-.slide img {
-    width: 100%;
-    height: auto;
-}
-
-/* Styles for overlay */
-.overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 20px;
-    box-sizing: border-box;
+    opacity: 0; /* Initially hide all slides */
+    transition: opacity 0.5s ease; /* Fade transition effect */
+}
+
+/* Active slide */
+.slide.active {
+    opacity: 1;
+}
+
+/* Image within each slide */
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Slide content overlay */
+.slide-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: #fff;
+    padding: 20px;
 }
 
-/* Styles for dot navigation container */
-.dot-container {
-    text-align: center;
+/* Dot navigation container */
+.dot-navigation {
+    display: flex;
+    justify-content: center;
     margin-top: 20px;
 }
 
-/* Styles for individual dots */
-.dot {
-    height: 15px;
-    width: 15px;
-    background-color: #bbb;
+/* Dot navigation item */
+.dot-navigation-item {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
     border-radius: 50%;
-    display: inline-block;
     margin: 0 5px;
     cursor: pointer;
 }
 
-/* Style for active dot */
-.active {
-    background-color: #717171;
+/* Active dot */
+.dot-navigation-item.active {
+    background-color: #555;
 }

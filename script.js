@@ -1,36 +1,26 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Get all slides and dots
-    var slides = document.querySelectorAll('.slide');
-    var dots = document.querySelectorAll('.dot');
+// Get the required elements
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.querySelector('.dot-navigation');
 
-    // Set the current slide and dot index
-    var currentSlide = 0;
+// Initially set the first slide and dot as active
+slides[0].classList.add('active');
 
-    // Show the first slide and activate the corresponding dot
-    showSlide(currentSlide);
-
-    // Add event listener to each dot for navigation
-    dots.forEach(function(dot, index) {
-        dot.addEventListener('click', function() {
-            showSlide(index);
-        });
-    });
-
-    // Function to show a slide and update active dot
-    function showSlide(index) {
-        // Hide all slides
-        slides.forEach(function(slide) {
-            slide.style.display = 'none';
-        });
-        // Deactivate all dots
-        dots.forEach(function(dot) {
-            dot.classList.remove('active');
-        });
-        // Show the selected slide
-        slides[index].style.display = 'block';
-        // Activate the corresponding dot
-        dots[index].classList.add('active');
-        // Update current slide index
-        currentSlide = index;
-    }
+// Generate dot navigation based on the number of slides
+slides.forEach((slide, index) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot-navigation-item');
+    dot.addEventListener('click', () => navigateToSlide(index));
+    dotsContainer.appendChild(dot);
 });
+
+// Function to navigate to a specific slide
+function navigateToSlide(index) {
+    // Remove active class from all slides and dots
+    slides.forEach((slide) => slide.classList.remove('active'));
+    const dots = dotsContainer.querySelectorAll('.dot-navigation-item');
+    dots.forEach((dot) => dot.classList.remove('active'));
+
+    // Add active class to the selected slide and dot
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+};
