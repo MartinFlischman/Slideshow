@@ -1,0 +1,56 @@
+/* Styles for slideshow container */
+.slideshow-container {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Styles for individual slides */
+.slide {
+    display: none;
+    position: relative;
+}
+
+/* Styles for images inside slides */
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* Styles for overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Styles for dot navigation container */
+.dot-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Styles for individual dots */
+.dot {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/* Style for active dot */
+.active {
+    background-color: #717171;
+}
