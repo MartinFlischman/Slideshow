@@ -9,6 +9,7 @@ slides[0].classList.add('active');
 slides.forEach((slide, index) => {
     const dot = document.createElement('span');
     dot.classList.add('dot-navigation-item');
+    // Add event listener to each dot for navigation
     dot.addEventListener('click', () => navigateToSlide(index));
     dotsContainer.appendChild(dot);
 });
@@ -24,3 +25,13 @@ function navigateToSlide(index) {
     slides[index].classList.add('active');
     dots[index].classList.add('active');
 };
+
+// Automatically switch to the next slide every 5 seconds
+let currentSlide = 0;
+const totalSlides = slides.length;
+
+setInterval(() => {
+    // Increment current slide index and navigate to the next slide
+    currentSlide = (currentSlide + 1) % totalSlides;
+    navigateToSlide(currentSlide);
+}, 5000);
